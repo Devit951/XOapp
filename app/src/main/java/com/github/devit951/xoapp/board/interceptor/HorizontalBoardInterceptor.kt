@@ -6,7 +6,7 @@ import com.github.devit951.xoapp.board.BoardInterceptor
 import com.github.devit951.xoapp.board.Cell
 
 class HorizontalBoardInterceptor: BoardInterceptor {
-    override fun interceptBoard(cells: Array<Array<Cell?>>, board: Board): Boolean{
+    override fun interceptBoard(cells: Array<Array<Cell?>>, onBoardAction: (String) -> Unit): Boolean{
         for (row in 0 until cells.size){
             var countOfSameFigureInRow = 0
             for (column in 0 until cells.size){
@@ -15,7 +15,7 @@ class HorizontalBoardInterceptor: BoardInterceptor {
                 }
                 if (countOfSameFigureInRow == 3){
                     val winnerPlayer = cells[row][row]
-                    board.onBoardAction.invoke(XOApp.context.getString(R.string.the_winner_is, winnerPlayer), board)
+                    onBoardAction.invoke(XOApp.context.getString(R.string.the_winner_is, winnerPlayer))
                     return true
                 }
             }

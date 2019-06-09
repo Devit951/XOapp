@@ -4,11 +4,11 @@ import android.widget.Button
 import android.widget.GridLayout
 import com.github.devit951.xoapp.xogame.XOView
 
-class Board(private val xoView: XOView, val onBoardAction: (String, Board) -> Unit){
+class Board(private val xoView: XOView,
+            private val onBoardAction: (String) -> Unit){
 
-    var cells = Array<Array<Cell?>>(3) { arrayOfNulls(3) }
-
-    private val boardObserver = BoardObserver(this)
+    private var cells = Array<Array<Cell?>>(3) { arrayOfNulls(3) }
+    private var boardObserver = BoardObserver(cells, onBoardAction)
 
     init {
         invalidate()
@@ -16,6 +16,7 @@ class Board(private val xoView: XOView, val onBoardAction: (String, Board) -> Un
 
     fun invalidate(){
         cells = Array<Array<Cell?>>(3) { arrayOfNulls(3) }
+        boardObserver = BoardObserver(cells, onBoardAction)
         xoView.removeAllViews()
         xoView.apply {
             rowCount = 3

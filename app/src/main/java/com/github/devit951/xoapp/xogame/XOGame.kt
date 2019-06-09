@@ -6,9 +6,11 @@ import com.github.devit951.xoapp.board.Board
 
 class XOGame(xoView: XOView){
 
+    private lateinit var board: Board
+
     init {
         val context = xoView.context
-        Board(xoView) { message, board ->
+        board =  Board(xoView) { message ->
             AlertDialog.Builder(context)
                     .setTitle(message)
                     .setPositiveButton(context.getString(R.string.new_game)) { dialog, which ->
