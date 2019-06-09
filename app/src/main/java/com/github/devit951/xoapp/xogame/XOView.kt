@@ -1,6 +1,5 @@
-package com.github.devit951.xoapp
+package com.github.devit951.xoapp.xogame
 
-import android.app.AlertDialog
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.GridLayout

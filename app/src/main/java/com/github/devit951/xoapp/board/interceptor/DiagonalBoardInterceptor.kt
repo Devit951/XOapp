@@ -1,4 +1,9 @@
-package com.github.devit951.xoapp
+package com.github.devit951.xoapp.board.interceptor
+
+import com.github.devit951.xoapp.*
+import com.github.devit951.xoapp.board.Board
+import com.github.devit951.xoapp.board.BoardInterceptor
+import com.github.devit951.xoapp.board.Cell
 
 class DiagonalBoardInterceptor: BoardInterceptor {
     override fun interceptBoard(cells: Array<Array<Cell?>>, board: Board): Boolean {

@@ -1,15 +1,17 @@
-package com.github.devit951.xoapp
+package com.github.devit951.xoapp.xogame
 
 import android.app.AlertDialog
+import com.github.devit951.xoapp.R
+import com.github.devit951.xoapp.board.Board
 
 class XOGame(xoView: XOView){
 
     init {
         val context = xoView.context
-        Board(xoView){ message, board ->
+        Board(xoView) { message, board ->
             AlertDialog.Builder(context)
                     .setTitle(message)
-                    .setPositiveButton(context.getString(R.string.new_game)){ dialog, which ->
+                    .setPositiveButton(context.getString(R.string.new_game)) { dialog, which ->
                         board.invalidate()
                     }
                     .setCancelable(false)

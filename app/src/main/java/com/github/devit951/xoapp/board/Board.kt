@@ -1,7 +1,8 @@
-package com.github.devit951.xoapp
+package com.github.devit951.xoapp.board
 
 import android.widget.Button
 import android.widget.GridLayout
+import com.github.devit951.xoapp.xogame.XOView
 
 class Board(private val xoView: XOView, val onBoardAction: (String, Board) -> Unit){
 
@@ -23,7 +24,7 @@ class Board(private val xoView: XOView, val onBoardAction: (String, Board) -> Un
                 for (column in 0 until 3){
                     addView(Button(context).apply {
                         setOnClickListener {
-                            boardObserver.move(TableCoordinates(row, column), this)
+                            boardObserver.move(BoardCoordinates(row, column), this)
                         }
                         layoutParams = GridLayout.LayoutParams().apply {
                             columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
