@@ -3,4 +3,7 @@
     <string name="new_game">Новая игра</string>
     <string name="draw">Ничья</string>
     <string name="the_winner_is">Победитель: %s</string>
+    <string name="easy_bot">Easy Bot</string>
+    <string name="medium_bot">Medium Bot</string>
+    <string name="hard_bot">Hard Bot</string>
 </resources>
