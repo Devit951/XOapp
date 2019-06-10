@@ -6,7 +6,7 @@ import android.widget.GridLayout
 
 class XOView(context: Context, attributeSet: AttributeSet? = null, defAttr: Int = 0): GridLayout(context, attributeSet, defAttr) {
 
-    init {
-        XOGame(this)
+    fun startGame(players: List<Moveable>){
+        XOGame(this, players)
     }
 }
