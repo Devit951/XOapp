@@ -15,25 +15,29 @@ class MainView(context: Context): FrameLayout(context){
 
     init {
         val defaultPadding = 48.dp
-        botsInfo.forEachIndexed{ index, botInfo ->
-            button{
-                text = botInfo.title
-                setOnClickListener { botInfo.onClick.invoke() }
-                setTextColor(botInfo.titleColor)
-                layoutParams = FrameLayout.LayoutParams(wrapContent, wrapContent).apply {
-                    gravity = Gravity.CENTER
-                    topMargin = (index * defaultPadding)
-                }
+        val buttonsFrameLayout = FrameLayout(context).apply {
+            layoutParams = FrameLayout.LayoutParams(matchParent, matchParent)
+            botsInfo.forEachIndexed{ index, botInfo ->
+                addView(button{
+                    text = botInfo.title
+                    setOnClickListener { botInfo.onClick.invoke() }
+                    setTextColor(botInfo.titleColor)
+                    layoutParams = FrameLayout.LayoutParams(wrapContent, wrapContent).apply {
+                        topMargin = (index * defaultPadding)
+                        gravity = Gravity.CENTER
+                    }
+                })
             }
+            setPadding(0, 0, 0, defaultPadding * (botsInfo.size - 1))
         }
-        setPadding(0, 0, 0, (defaultPadding * 2))
+        addView(buttonsFrameLayout)
     }
 
 
-    private fun button(button: Button.() -> Unit){
-        addView(Button(context).apply {
+    private fun button(button: Button.() -> Unit): Button{
+        return Button(context).apply {
             button(this)
-        })
+        }
     }
 
     private class BotInfo(val title: String, val titleColor: Int, val onClick: () -> Unit)
