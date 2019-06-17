@@ -16,8 +16,10 @@ class Board(private val xoView: XOView,
             private val players: List<Moveable>,
             private val onBoardAction: (String) -> Unit){
 
-    private var cells = Array<Array<Cell?>>(3) { arrayOfNulls(3) }
-    private var buttons = Array<Array<Button?>>(3) { arrayOfNulls(3) }
+    private val sizeOfBoard = 3
+
+    private var cells = Array<Array<Cell?>>(sizeOfBoard) { arrayOfNulls(sizeOfBoard) }
+    private var buttons = Array<Array<Button?>>(sizeOfBoard) { arrayOfNulls(sizeOfBoard) }
     private var boardObserver = BoardObserver(cells, players, onBoardAction)
 
     init {
@@ -27,8 +29,8 @@ class Board(private val xoView: XOView,
     fun invalidate(){
         moveToDefaultState()
         xoView.apply {
-            rowCount = 3
-            columnCount = 3
+            rowCount = sizeOfBoard
+            columnCount = sizeOfBoard
             for (row in 0 until rowCount){
                 for (column in 0 until columnCount){
                     Button(context).apply {
@@ -50,9 +52,9 @@ class Board(private val xoView: XOView,
     }
 
     private fun moveToDefaultState(){
-        cells = Array<Array<Cell?>>(3) { arrayOfNulls(3) }
+        cells = Array<Array<Cell?>>(sizeOfBoard) { arrayOfNulls(sizeOfBoard) }
         boardObserver = BoardObserver(cells, players, onBoardAction)
-        buttons = Array<Array<Button?>>(3) { arrayOfNulls(3) }
+        buttons = Array<Array<Button?>>(sizeOfBoard) { arrayOfNulls(sizeOfBoard) }
         xoView.removeAllViews()
     }
 
