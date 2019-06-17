@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">XOapp</string>
-    <string name="new_game">Новая игра</string>
-    <string name="draw">Ничья</string>
-    <string name="the_winner_is">Победитель: %s</string>
+    <string name="new_game">New game</string>
+    <string name="draw">Draw</string>
+    <string name="the_winner_is">The winner is: %s</string>
     <string name="easy_bot">Easy Bot</string>
     <string name="medium_bot">Medium Bot</string>
     <string name="hard_bot">Hard Bot</string>
     <string name="human_vs_human">Human vs Human</string>
     <string name="bot_vs_bot">Bot vs Bot</string>
-    <string name="main_menu">Главное меню</string>
+    <string name="main_menu">Main menu</string>
 </resources>
