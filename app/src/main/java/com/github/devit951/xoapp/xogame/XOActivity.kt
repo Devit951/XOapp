@@ -1,8 +1,7 @@
-package com.github.devit951.xoapp
+package com.github.devit951.xoapp.xogame
 
 import android.app.Activity
 import android.os.Bundle
-import com.github.devit951.xoapp.xogame.*
 
 class XOActivity: Activity() {
 

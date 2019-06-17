@@ -1,4 +1,4 @@
-package com.github.devit951.xoapp
+package com.github.devit951.xoapp.xogame
 
 import android.content.Context
 import android.graphics.Canvas

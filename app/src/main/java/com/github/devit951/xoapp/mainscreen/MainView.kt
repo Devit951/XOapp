@@ -27,7 +27,6 @@ class MainView(context: Context): FrameLayout(context){
             GameMode(title = context.getString(R.string.bot_vs_bot), titleColor = Color.CYAN, onClick = { context.startActivity(context.intent<XOActivity> { putExtra(XOActivity.ARG_MOVEABLE_PLAYERS, BotVsBot().bots() as Serializable) }) }))
 
     init {
-        addView(XOBackgroundView(context))
         val defaultPadding = 48.dp
         val buttonsFrameLayout = FrameLayout(context).apply {
             layoutParams = FrameLayout.LayoutParams(matchParent, matchParent)

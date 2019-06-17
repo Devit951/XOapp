@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:name=".XOApp"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".mainscreen.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +19,7 @@
         </activity>
 
         <activity
-            android:name=".XOActivity"
+            android:name=".xogame.XOActivity"
             android:launchMode="singleTask"/>
     </application>
 

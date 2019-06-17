@@ -4,10 +4,10 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import com.github.devit951.xoapp.MainActivity
+import com.github.devit951.xoapp.mainscreen.MainActivity
 import com.github.devit951.xoapp.R
 import com.github.devit951.xoapp.board.Board
-import com.github.devit951.xoapp.intent
+import com.github.devit951.xoapp.extension.intent
 
 class XOGame(xoView: XOView, players: List<Moveable>){
 
