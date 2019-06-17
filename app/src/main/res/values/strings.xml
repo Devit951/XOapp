@@ -6,4 +6,7 @@
     <string name="easy_bot">Easy Bot</string>
     <string name="medium_bot">Medium Bot</string>
     <string name="hard_bot">Hard Bot</string>
+    <string name="human_vs_human">Human vs Human</string>
+    <string name="bot_vs_bot">Bot vs Bot</string>
+    <string name="main_menu">Главное меню</string>
 </resources>
