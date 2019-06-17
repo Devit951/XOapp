@@ -18,7 +18,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".XOActivity"/>
+        <activity
+            android:name=".XOActivity"
+            android:launchMode="singleTask"/>
     </application>
 
 </manifest>
