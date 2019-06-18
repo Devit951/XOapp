@@ -2,6 +2,7 @@ package com.github.devit951.xoapp.xogame
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.Toast
 
 class XOActivity: Activity() {
 
@@ -16,6 +17,9 @@ class XOActivity: Activity() {
         super.onCreate(savedInstanceState)
         setContentView(XOView(this).apply {
             startGame(players)
+            onPlayerMoved = { currentPlayer ->
+                Toast.makeText(this@XOActivity, "The next move of the figure is = ${currentPlayer.figure.opposite()}", Toast.LENGTH_SHORT).show()
+            }
         })
     }
 }

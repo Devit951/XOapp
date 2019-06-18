@@ -22,6 +22,8 @@ class Board(private val xoView: XOView,
     private var buttons = Array<Array<Button?>>(sizeOfBoard) { arrayOfNulls(sizeOfBoard) }
     private var boardObserver = BoardObserver(cells, players, onBoardAction)
 
+    var onPlayerMoved: ((Player) -> Unit)? = null
+
     init {
         invalidate()
     }
@@ -41,6 +43,7 @@ class Board(private val xoView: XOView,
                         }
                         setOnClickListener {
                             boardObserver.move(BoardCoordinates(row, column)){ boardCoordinates, currentPlayer ->
+                                onPlayerMoved?.invoke(currentPlayer)
                                 drawFigureOn(buttons[boardCoordinates.row][boardCoordinates.column]!!, currentPlayer)
                             }
                         }

@@ -13,12 +13,14 @@ class XOGame(xoView: XOView, players: List<Moveable>){
 
     private lateinit var board: Board
 
+    var onPlayerMoved: ((Player) -> Unit)? = null
+
     init {
         val context = xoView.context
         board =  Board(xoView, players) { message ->
             AlertDialog.Builder(context)
                     .setMessage(message)
-                    .setPositiveButton(context.getString(R.string.new_game)) { dialog, which ->
+                    .setPositiveButton(context.getString(R.string.new_game)) { _, _ ->
                         board.invalidate()
                     }
                     .setNegativeButton(context.getString(R.string.main_menu)){ _, _ ->
@@ -30,5 +32,6 @@ class XOGame(xoView: XOView, players: List<Moveable>){
                         show()
                     }
         }
+        board.onPlayerMoved = onPlayerMoved
     }
 }
