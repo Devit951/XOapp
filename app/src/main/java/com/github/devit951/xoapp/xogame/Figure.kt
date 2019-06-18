@@ -9,12 +9,15 @@ enum class Figure {
         override fun draw(canvas: Canvas){
             Shapes.get(X).drawShape(canvas)
         }
+        override fun opposite() = O
     },
     O {
         override fun draw(canvas: Canvas){
             Shapes.get(O).drawShape(canvas)
         }
+        override fun opposite() = X
     };
 
     abstract fun draw(canvas: Canvas)
+    abstract fun opposite(): Figure
 }
