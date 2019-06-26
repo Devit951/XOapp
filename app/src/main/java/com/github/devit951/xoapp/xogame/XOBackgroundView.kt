@@ -4,15 +4,10 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.widget.FrameLayout
-import com.github.devit951.xoapp.extension.dp
 
 class XOBackgroundView(context: Context,
                        attributeSet: AttributeSet? = null,
                        defAttr: Int = 0): FrameLayout(context, attributeSet, defAttr){
-
-    companion object {
-        private val SIZE_OF_FIGURE = 100.dp
-    }
 
     private var actualY = 0
 
@@ -20,11 +15,7 @@ class XOBackgroundView(context: Context,
 
     init {
         xoViews.forEach {
-            addView(it.apply {
-                post {
-                    layoutParams = FrameLayout.LayoutParams(SIZE_OF_FIGURE, SIZE_OF_FIGURE)
-                }
-            })
+            addView(it)
         }
         setWillNotDraw(false)
     }
@@ -34,10 +25,11 @@ class XOBackgroundView(context: Context,
         actualY = (actualY + 10) % height
         for (i in 0 until childCount){
             getChildAt(i).apply {
+                val sizeOfFigure = Math.min(measuredWidth, measuredHeight)
                 top = actualY
-                bottom = top + SIZE_OF_FIGURE
-                left = SIZE_OF_FIGURE * i
-                right = left + SIZE_OF_FIGURE
+                bottom = top + sizeOfFigure
+                left = sizeOfFigure * i
+                right = left + sizeOfFigure
             }
         }
         invalidate()
