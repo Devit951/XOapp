@@ -9,29 +9,20 @@ class XOBackgroundView(context: Context,
                        attributeSet: AttributeSet? = null,
                        defAttr: Int = 0): FrameLayout(context, attributeSet, defAttr){
 
-    private var actualY = 0
-
-    private val xoViews = listOf(XView(context), OView(context), XView(context), OView(context))
+    private val randomlyTranslateViews = listOf(
+            RandomTranslationView(XView(context)),
+            RandomTranslationView(XView(context)),
+            RandomTranslationView(OView(context)),
+            RandomTranslationView(OView(context)))
 
     init {
-        xoViews.forEach {
-            addView(it)
-        }
+        randomlyTranslateViews.forEach { addView(it.origin) }
         setWillNotDraw(false)
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        actualY = (actualY + 10) % height
-        for (i in 0 until childCount){
-            getChildAt(i).apply {
-                val sizeOfFigure = Math.min(measuredWidth, measuredHeight)
-                top = actualY
-                bottom = top + sizeOfFigure
-                left = sizeOfFigure * i
-                right = left + sizeOfFigure
-            }
-        }
+        randomlyTranslateViews.forEach { it.randomlyTranslate(canvas) }
         invalidate()
     }
 }
