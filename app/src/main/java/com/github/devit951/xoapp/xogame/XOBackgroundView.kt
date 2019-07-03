@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.widget.FrameLayout
+import kotlin.random.Random
 
 class XOBackgroundView(context: Context,
                        attributeSet: AttributeSet? = null,
@@ -17,6 +18,9 @@ class XOBackgroundView(context: Context,
 
     init {
         randomlyTranslateViews.forEach { addView(it.origin) }
+        for (i in 1..10){
+            growTranslationViewList(context, 5000 * i)
+        }
         setWillNotDraw(false)
     }
 
@@ -24,5 +28,13 @@ class XOBackgroundView(context: Context,
         super.onDraw(canvas)
         randomlyTranslateViews.forEach { it.randomlyTranslate(canvas) }
         invalidate()
+    }
+
+    private fun growTranslationViewList(context: Context, delay: Int){
+        postDelayed({
+            val randomView = if (Random.nextInt(2) == 1) RandomTranslationView(XView(context)) else RandomTranslationView(OView(context))
+            randomlyTranslateViews.add(randomView)
+            addView(randomView.origin)
+        }, delay.toLong())
     }
 }
