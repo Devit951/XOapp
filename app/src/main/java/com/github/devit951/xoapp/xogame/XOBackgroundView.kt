@@ -9,7 +9,7 @@ class XOBackgroundView(context: Context,
                        attributeSet: AttributeSet? = null,
                        defAttr: Int = 0): FrameLayout(context, attributeSet, defAttr){
 
-    private val randomlyTranslateViews = listOf(
+    private val randomlyTranslateViews = mutableListOf(
             RandomTranslationView(XView(context)),
             RandomTranslationView(XView(context)),
             RandomTranslationView(OView(context)),
