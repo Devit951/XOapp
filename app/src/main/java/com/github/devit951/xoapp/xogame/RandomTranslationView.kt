@@ -15,7 +15,7 @@ class RandomTranslationView(val origin: View) {
     }
 
     private val road: Queue<Coordinate> = LinkedList()
-    private var currentDirection = Direction.values().get(0)
+    private var currentDirection = Direction.values().get(Random.nextInt(Direction.values().size))
     private var lastCoordinate: Coordinate? = null
 
     fun randomlyTranslate(canvas: Canvas){
